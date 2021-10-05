@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--注解管理bean方式-->
+    <!--开启组件扫描
+        1.扫描多个包，逗号隔开
+        2.扫描上级目录-->
+    <context:component-scan base-package="com.hhx05"></context:component-scan>
+    <!--3.创建类，在类上面添加创建对象注解-->
+
+    <!--示例一
+        use-default-filters="false"表示不使用默认filter，自己配置filter
+
+        -->
+    <context:component-scan base-package="com.hhx05" use-default-filters="false">
+        <!--到com.hhx05包内扫描注解为Controller的内容-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <context:component-scan base-package="com.hhx05" use-default-filters="false">
+        <!--到com.hhx05包内扫描注解不是Controller的内容-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+</beans>

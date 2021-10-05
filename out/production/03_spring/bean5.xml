@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employee" class="com.hh03.bean.Employee">
+        <property name="empName" value="惠恒星"></property>
+        <property name="gender" value="男"></property>
+        <property name="dep" ref="department"></property>
+        <!-- 需要dep属性的get方法-->
+        <property name="dep.depName" value="财务部"></property>
+    </bean>
+
+    <bean id="department" class="com.hh03.bean.Department">
+<!--        <property name="depName" value="业务部"></property>-->
+    </bean>
+</beans>

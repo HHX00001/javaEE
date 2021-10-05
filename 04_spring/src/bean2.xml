@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+    <!---->
+    <bean id="student" class="com.hhx04.bean.Stu1">
+        <property name="books">
+            <list>
+                <ref bean="book1"></ref>
+                <ref bean="book2"></ref>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--创建多个bean对象-->
+    <bean id="book1" class="com.hhx04.bean.Book">
+        <property name="name" value="C语言程序与设计"></property>
+        <property name="info" ref="infoList1"></property>
+    </bean>
+    <bean id="book2" class="com.hhx04.bean.Book">
+        <property name="name" value="走进Spring源码"></property>
+        <property name="info" ref="infoList2"></property>
+    </bean>
+
+    <!--使用util标签完成list集合注入提取-->
+    <!--提取list集合属性注入-->
+    <util:list id="infoList1">
+        <value>深入C语言这本书</value>
+        <value>发现这书是难的雅痞</value>
+    </util:list>
+    <util:list id="infoList2">
+        <value>走进Spring源码不久</value>
+        <value>我直呼好家伙</value>
+    </util:list>
+
+</beans>

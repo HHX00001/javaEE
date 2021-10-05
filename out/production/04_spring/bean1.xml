@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.hhx04.bean.Stu">
+
+        <!--数组类型属性注入-->
+        <property name="info">
+            <array>
+                <value>从小生长在农村</value>
+                <value>想要过上自己喜欢的生活</value>
+            </array>
+        </property>
+
+        <!--list类型属性注入-->
+        <property name="books">
+            <list>
+                <value>java核心技术</value>
+                <value>深入jvm</value>
+            </list>
+        </property>
+
+        <!--map类型属性注入-->
+        <property name="scores">
+            <map>
+                <entry key="数据结构与算法" value="99"></entry>
+                <entry key="计算机网络" value="88"></entry>
+            </map>
+        </property>
+
+        <!--set类型属性注入-->
+        <property name="courses">
+            <set>
+                <value>体质健康</value>
+                <value>思想道德</value>
+            </set>
+        </property>
+
+    </bean>
+</beans>

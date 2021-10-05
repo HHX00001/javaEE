@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    （1）通过构造器创建 bean 实例（无参数构造）
+    （2）为 bean 的属性设置值和对其他 bean 引用（调用 set 方法）
+    （3）把 bean 实例传递 bean 后置处理器的方法 postProcessBeforeInitialization
+    （4）调用 bean 的初始化的方法（需要进行配置初始化的方法）
+    （5）把 bean 实例传递 bean 后置处理器的方法 postProcessAfterInitialization
+    （6）bean 可以使用了（对象获取到了）
+    （7）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
+    -->
+    <bean id="lifeCycleBean" class="com.hhx04.bean.Orders" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="oderName" value="书籍"></property>
+    </bean>
+
+    <bean id="book1" class="com.hhx04.bean.Book1" scope="prototype">
+        <property name="name" value="C语言"></property>
+    </bean>
+    <bean id="PostProcessor" class="com.hhx04.bean.MyBeanPost"></bean>
+</beans>

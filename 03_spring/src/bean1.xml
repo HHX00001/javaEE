@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1、配置对象创建 -->
+    <bean id="user" class="com.hh03.bean.User">
+        <!-- 2、用set方法注入属性，先创建对象，后注入属性-->
+        <property name="age" value="22"></property>
+        <property name="username" value="惠恒星"></property>
+
+
+        <property name="address">
+            <!--属性值设特殊符号，可以用转义符如&lt，也可以用如下的方式-->
+            <value><![CDATA[<<南京>>]]></value>
+
+            <!--属性值设null-->
+            <!-- <null></null>-->
+        </property>
+    </bean>
+
+    <!--    3、有参构造注入属性-->
+    <bean id="person" class="com.hh03.bean.Person">
+        <constructor-arg name="age" value="22"></constructor-arg>
+        <constructor-arg name="name" value="惠恒星"></constructor-arg>
+
+        <!--此时会覆盖构造器传入的属性值-->
+        <property name="name" value="覆盖"></property>
+        <property name="age" value="33"></property>
+    </bean>
+</beans>

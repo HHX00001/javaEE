@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--自动装配
+        bean标签属性名autowire配置自动装配
+        auto有两属性值：byName根据属性名注入，要注入的bean的id和类属性名称一样
+                        byType根据属性类型注入,根据类型找到此类型的bean对象-->
+
+    <bean id="emp" class="com.hhx04.autowire.Emp" autowire="byType">
+        <!--        <property name="dept" ref="dept"></property>-->
+    </bean>
+
+    <bean id="fdsa" class="com.hhx04.autowire.Dept">
+        <property name="name" value="dept灰灰灰灰"/>
+    </bean>
+    <!--    <bean id="depdasdasat1" class="com.hhx04.autowire.Dept">-->
+    <!--        <property name="name" value="dsadadas"></property>-->
+    <!--    </bean>-->
+    <!--    <bean id="dept1" class="com.hhx04.autowire.Dept"></bean> 此时报错，只能装配一个-->
+</beans>
